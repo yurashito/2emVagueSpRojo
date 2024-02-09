@@ -344,3 +344,28 @@ JOIN lieu on annonce.idLieu = lieu.idLieu
 ;
 
 
+create view V_TousAnnonceFavorie as
+    select favorie.idFavorie , annonce.idAnnonce , annonce.dateheureannonce , annonce.description , annonce.imatricule , 
+    annonce.idCategorie , categorie.nomcategorie ,annonce.idmarque , marque.nomMarque , carburant.idCarburant , 
+    carburant.nomCarburant , model.idModel , model.nomModel , annonce.idboitedevitesse , boiteDeVitesse.nomBoiteDeVitesse ,
+    couleur.idCouleur , couleur.nomCouleur ,favorie.idUtilisateur , utilisateur.nomUtilisateur , annonce.idLieu , lieu.nomLieu,
+    annee , prix ,pourcentagealaina , etatAnnonce
+    from favorie
+    join annonce
+    on favorie.idAnnonce = annonce.idAnnonce
+    join utilisateur
+    on utilisateur.idUtilisateur = favorie.idUtilisateur
+    join categorie
+    on categorie.idCategorie = annonce.idCategorie
+    join marque
+    on marque.idMarque = annonce.idMarque
+    join carburant
+    on carburant.idCarburant = annonce.idCarburant
+    join model
+    on model.idModel = annonce.idModel
+    join boiteDeVitesse
+    on boiteDeVitesse.idBoiteDeVitesse = annonce.idBoiteDeVitesse
+    join couleur
+    on couleur.idCouleur = annonce.idCouleur 
+    join lieu
+    on lieu.idLieu = annonce.idLieu;

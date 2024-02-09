@@ -21,4 +21,11 @@ public class Favorie {
     int idutilisateur;
     @Column
     int etat;
+    public Favorie(int idannonce, int idutilisateur) {
+        this.idannonce = idannonce;
+        this.idutilisateur = idutilisateur;
+    }
+    
+
+
 }
