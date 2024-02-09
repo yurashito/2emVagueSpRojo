@@ -25,8 +25,7 @@ public class AnnonceDetailRepository {
         AnnonceDetail annonce = new AnnonceDetail();
         annonce.setIdAnnonce(resultSet.getInt("idAnnonce"));
         annonce.setDescription(resultSet.getString("description"));
-        annonce.setDateHeureAnnonce(resultSet.getTimestamp("dateHeureAnnonce"));
-        annonce.setIdVoiture(resultSet.getInt("idVoiture"));        
+        annonce.setDateHeureAnnonce(resultSet.getTimestamp("dateHeureAnnonce"));      
         annonce.setImatricule(resultSet.getString("iMatricule"));
         annonce.setIdCouleur(resultSet.getInt("idCouleur"));
         annonce.setCouleur(resultSet.getString("couleur"));
@@ -168,7 +167,7 @@ public class AnnonceDetailRepository {
         List<String> listeConstrainte =  listeContrainte(  prixMin ,   prixMax ,  idBoitedevitesse ,  idCarburant ,   idCategorie ,   idLieu ,   idMarque  ,   idModel);
         String contrainte= contrainteEnString(listeConstrainte);
         
-        String sql = "SELECT * FROM V_Annonce where "+contrainte;
+        String sql = "SELECT * FROM V_TousAnnonceFavorie where "+contrainte;
 
         System.out.println(sql);
         List<AnnonceDetail> result = new ArrayList<>();
@@ -216,10 +215,10 @@ public class AnnonceDetailRepository {
         return result;
 
     } 
-    public AnnonceDetailRepository  historiqueAnnonceUtilisateur() {
+    // public AnnonceDetailRepository  historiqueAnnonceUtilisateur() {
     
-        @Query(value = "select * from annonce where :idCreateur = idCreateur " , nativeQuery = true)
-        Utilisateur historiqueAnnonceUtilisateur(@Param("idCreateur") int idCreateur); 
+    //     @Query(value = "select * from annonce where :idCreateur = idCreateur " , nativeQuery = true)
+    //     Utilisateur historiqueAnnonceUtilisateur(@Param("idCreateur") int idCreateur); 
     
-}
+// }
 }

@@ -25,18 +25,24 @@ public class AnnonceDetailRepository {
         AnnonceDetail annonce = new AnnonceDetail();
         annonce.setIdAnnonce(resultSet.getInt("idAnnonce"));
         annonce.setDescription(resultSet.getString("description"));
-        annonce.setDateHeureAnnonce(resultSet.getTimestamp("dateHeureAnnonce"));
+        annonce.setDateHeureAnnonce(resultSet.getTimestamp("dateHeure"));
         annonce.setImatricule(resultSet.getString("iMatricule"));
         annonce.setIdCouleur(resultSet.getInt("idCouleur"));
-        annonce.setCouleur(resultSet.getString("couleur"));
+        annonce.setCouleur(resultSet.getString("nomCouleur"));
         annonce.setIdCreateur(resultSet.getInt("idCreateur"));
-        annonce.setNomCreateur(resultSet.getString("nomCreateur"));
+        annonce.setNomCreateur(resultSet.getString("nomutilisateur"));
         annonce.setIdLieu(resultSet.getInt("idLieu"));
         annonce.setNomLieu(resultSet.getString("nomLieu"));
         annonce.setAnnee(resultSet.getString("annee"));
         annonce.setPrix(resultSet.getDouble("prix"));
-        annonce.setPourcentageAlaina(resultSet.getDouble("pourcentageAlaina"));
+        annonce.setPourcentageAlaina(resultSet.getDouble("pourcentage"));
         annonce.setEtatAnnonce(resultSet.getInt("etatAnnonce"));
+        annonce.setIdCarburant(resultSet.getInt("idCarburant"));
+        annonce.setNomMarque(resultSet.getString("nomMarque"));
+        annonce.setNomCarburant(resultSet.getString("nomCarburant"));
+        annonce.setBoiteVitesse(resultSet.getString("nomBoiteDeVitesse"));
+        annonce.setNomCategorie(resultSet.getString("nomCategorie"));
+        annonce.setNomModel(resultSet.getString("nomModel"));
         return annonce;
     }
 
@@ -167,7 +173,7 @@ public class AnnonceDetailRepository {
         List<String> listeConstrainte =  listeContrainte(  prixMin ,   prixMax ,  idBoitedevitesse ,  idCarburant ,   idCategorie ,   idLieu ,   idMarque  ,   idModel);
         String contrainte= contrainteEnString(listeConstrainte);
         
-        String sql = "SELECT * FROM V_Annonce where "+contrainte;
+        String sql = "SELECT * FROM ViewAnnonce where "+contrainte;
 
         System.out.println(sql);
         List<AnnonceDetail> result = new ArrayList<>();

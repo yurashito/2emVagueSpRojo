@@ -102,8 +102,6 @@ public class AnnonceController {
         }
     }
 
-
-
     @PostMapping("/deleteAnnonce/{idannonce}")
     public void deleteAnnonce(@PathVariable int idannonce){
         this.annonceService.deleteAnnonce(idannonce);
