@@ -18,7 +18,39 @@ public class AnnonceDetail {
     double Prix ;
     double PourcentageAlaina;
     int EtatAnnonce;
-
+    int IdCarburant;
+    String NomMarque;
+    String NomCarburant;
+    String BoiteVitesse;
+    String NomCategorie;
+    String NomModel;
+    
+    
+    
+    public String getBoiteVitesse() {
+        return BoiteVitesse;
+    }
+    public void setBoiteVitesse(String boiteVitesse) {
+        BoiteVitesse = boiteVitesse;
+    }
+    public String getNomCategorie() {
+        return NomCategorie;
+    }
+    public void setNomCategorie(String nomCategorie) {
+        NomCategorie = nomCategorie;
+    }
+    public String getNomMarque() {
+        return NomMarque;
+    }
+    public void setNomMarque(String nomMarque) {
+        NomMarque = nomMarque;
+    }
+    public String getNomCarburant() {
+        return NomCarburant;
+    }
+    public void setNomCarburant(String nomCarburant) {
+        NomCarburant = nomCarburant;
+    }
     public int getIdAnnonce() {
         return IdAnnonce;
     }
@@ -102,6 +134,18 @@ public class AnnonceDetail {
     }
     public void setDateHeureAnnonce(Timestamp dateHeureAnnonce) {
         DateHeureAnnonce = dateHeureAnnonce;
+    }
+    public int getIdCarburant() {
+        return IdCarburant;
+    }
+    public void setIdCarburant(int idCarburant) {
+        IdCarburant = idCarburant;
+    }
+    public String getNomModel() {
+        return NomModel;
+    }
+    public void setNomModel(String nomModel) {
+        NomModel = nomModel;
     }
 
     
