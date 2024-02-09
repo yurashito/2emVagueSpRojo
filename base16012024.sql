@@ -331,7 +331,7 @@ CREATE or REPLACE VIEW annonceDetaille as
     annonce.prix,
     annonce.pourcentagealaina as pourcentage,
     annonce.etatAnnonce , 
-    annonce.idcreateur
+    annonce.idcreateur 
  from Annonce
 JOIN categorie on annonce.idCategorie = categorie.idCategorie
 JOIN marque on annonce.idMarque = marque.idMarque
@@ -369,3 +369,42 @@ create view V_TousAnnonceFavorie as
     on couleur.idCouleur = annonce.idCouleur 
     join lieu
     on lieu.idLieu = annonce.idLieu;
+
+
+
+CREATE or REPLACE VIEW ViewAnnonce as 
+    SELECT annonce.idAnnonce,
+    annonce.dateheureannonce as dateheure ,
+    annonce.description ,
+    annonce.imatricule ,
+    categorie.idCategorie,
+    categorie.nomCategorie,
+    marque.idMarque,
+    marque.nomMarque,
+    carburant.nomCarburant,
+    model.idModel,
+    model.nomModel,
+    boiteDeVitesse.idBoiteDeVitesse,
+    boiteDeVitesse.nomBoiteDeVitesse,
+    couleur.idCouleur,
+    couleur.nomCouleur,
+    utilisateur.idUtilisateur,
+    utilisateur.nomutilisateur,
+    lieu.idLieu,
+    lieu.nomLieu,
+    annonce.annee,
+    annonce.prix,
+    annonce.pourcentagealaina as pourcentage,
+    annonce.etatAnnonce , 
+    annonce.idcreateur ,
+    carburant.idCarburant
+ from Annonce
+JOIN categorie on annonce.idCategorie = categorie.idCategorie
+JOIN marque on annonce.idMarque = marque.idMarque
+join carburant on annonce.idCarburant = carburant.idCarburant
+JOIN model on annonce.idModel = model.idModel
+JOIN boiteDeVitesse on annonce.idBoiteDeVitesse = boiteDeVitesse.idBoiteDeVitesse
+JOIN couleur on annonce.idCouleur = couleur.idCouleur
+JOIN utilisateur on annonce.idcreateur = utilisateur.idUtilisateur
+JOIN lieu on annonce.idLieu = lieu.idLieu
+;
